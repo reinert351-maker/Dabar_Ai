@@ -1,0 +1,8 @@
+{
+  "name": "Dabar AI - Logos Offline",
+  "description": "The world's most complete offline-first Bible study application, featuring ACF Bible, Strong's concordance, theological themes, and sermon generators.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
