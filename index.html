@@ -1,86 +1,102 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Dabar AI | Estudo Bíblico Profundo</title>
+
+    <!-- Tailwind via CDN (OK para agora, depois pode migrar para PostCSS) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles & Themes -->
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-        .bible-text {
-            font-family: 'Merriweather', serif;
-        }
-        
-        /* Premium Sepia Theme */
-        .sepia {
-            background-color: #f4ecd8 !important;
-            color: #5b4636 !important;
-        }
-        .sepia .bg-white, .sepia .bg-slate-50 { background-color: #fdf6e3 !important; border-color: #eee8d5 !important; }
-        .sepia .text-slate-800, .sepia .text-slate-900 { color: #5b4636 !important; }
-        .sepia .text-slate-500, .sepia .text-slate-400 { color: #839496 !important; }
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
 
-        /* Midnight Theme (OLED Black) */
-        .midnight {
-            background-color: #000000 !important;
-            color: #ffffff !important;
-        }
-        .midnight .bg-white, .midnight .bg-slate-50, .midnight nav, .midnight header { 
-            background-color: #0a0a0a !important; 
-            border-color: #1a1a1a !important; 
-        }
-        .midnight .dark\:bg-slate-800, .midnight .dark\:bg-slate-900 {
-            background-color: #111111 !important;
-        }
-        .midnight .text-slate-800, .midnight .text-slate-900, .midnight .dark\:text-white { 
-            color: #eeeeee !important; 
-        }
+      .bible-text {
+        font-family: "Merriweather", serif;
+      }
 
-        /* Ocean Theme */
-        .ocean {
-            background-color: #f0f9ff !important;
-            color: #0c4a6e !important;
-        }
-        .ocean .bg-white, .ocean .bg-slate-50 { background-color: #e0f2fe !important; border-color: #bae6fd !important; }
-        .ocean nav, .ocean header { background-color: #bae6fd !important; border-color: #7dd3fc !important; }
-        .ocean .text-indigo-600 { color: #0284c7 !important; }
+      /* ===== Themes ===== */
 
-        /* Forest Theme */
-        .forest {
-            background-color: #f0fdf4 !important;
-            color: #14532d !important;
-        }
-        .forest .bg-white, .forest .bg-slate-50 { background-color: #dcfce7 !important; border-color: #bbf7d0 !important; }
-        .forest nav, .forest header { background-color: #bbf7d0 !important; border-color: #86efac !important; }
-        .forest .text-indigo-600 { color: #059669 !important; }
+      /* Sepia */
+      .sepia {
+        background-color: #f4ecd8 !important;
+        color: #5b4636 !important;
+      }
+      .sepia .bg-white,
+      .sepia .bg-slate-50 {
+        background-color: #fdf6e3 !important;
+        border-color: #eee8d5 !important;
+      }
+      .sepia .text-slate-800,
+      .sepia .text-slate-900 {
+        color: #5b4636 !important;
+      }
 
-        /* Custom scrollbar for premium feel */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        .dark::-webkit-scrollbar-thumb { background: #475569; }
-        .sepia::-webkit-scrollbar-thumb { background: #d3ccb8; }
-        .midnight::-webkit-scrollbar-thumb { background: #333; }
+      /* Midnight (OLED) */
+      .midnight {
+        background-color: #000 !important;
+        color: #fff !important;
+      }
+      .midnight .bg-white,
+      .midnight .bg-slate-50,
+      .midnight nav,
+      .midnight header {
+        background-color: #0a0a0a !important;
+        border-color: #1a1a1a !important;
+      }
+
+      /* Ocean */
+      .ocean {
+        background-color: #f0f9ff !important;
+        color: #0c4a6e !important;
+      }
+
+      /* Forest */
+      .forest {
+        background-color: #f0fdf4 !important;
+        color: #14532d !important;
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4"
-  }
-}
-</script>
-</head>
-<body class="bg-slate-50 text-slate-900 transition-colors duration-200">
+
+    <!-- Import map (Gemini / Google GenAI) -->
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
+          "react": "https://esm.sh/react@^19.2.4",
+          "react-dom": "https://esm.sh/react-dom@^19.2.4"
+        }
+      }
+    </script>
+  </head>
+
+  <body class="bg-slate-50 text-slate-900 transition-colors duration-200">
+    <!-- React root -->
     <div id="root"></div>
-</body>
+
+    <!-- 🚀 ENTRY POINT DO VITE (OBRIGATÓRIO) -->
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
