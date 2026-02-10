@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dabar AI | Estudo Bíblico Profundo</title>
 
+    <!-- Tailwind (temporário via CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,30 +16,83 @@
       rel="stylesheet"
     />
 
+    <!-- Estilos globais / temas -->
     <style>
-      body { font-family: "Inter", sans-serif; -webkit-font-smoothing: antialiased; }
-      .bible-text { font-family: "Merriweather", serif; }
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
 
-      .sepia { background-color: #f4ecd8 !important; color: #5b4636 !important; }
-      .sepia .bg-white, .sepia .bg-slate-50 { background-color: #fdf6e3 !important; border-color: #eee8d5 !important; }
-      .sepia .text-slate-800, .sepia .text-slate-900 { color: #5b4636 !important; }
+      .bible-text {
+        font-family: "Merriweather", serif;
+      }
 
-      .midnight { background-color: #000 !important; color: #fff !important; }
-      .midnight .bg-white, .midnight .bg-slate-50, .midnight nav, .midnight header { background-color: #0a0a0a !important; border-color: #1a1a1a !important; }
+      /* Sepia */
+      .sepia {
+        background-color: #f4ecd8 !important;
+        color: #5b4636 !important;
+      }
+      .sepia .bg-white,
+      .sepia .bg-slate-50 {
+        background-color: #fdf6e3 !important;
+        border-color: #eee8d5 !important;
+      }
+      .sepia .text-slate-800,
+      .sepia .text-slate-900 {
+        color: #5b4636 !important;
+      }
 
-      .ocean { background-color: #f0f9ff !important; color: #0c4a6e !important; }
-      .forest { background-color: #f0fdf4 !important; color: #14532d !important; }
+      /* Midnight */
+      .midnight {
+        background-color: #000 !important;
+        color: #fff !important;
+      }
+      .midnight .bg-white,
+      .midnight .bg-slate-50,
+      .midnight nav,
+      .midnight header {
+        background-color: #0a0a0a !important;
+        border-color: #1a1a1a !important;
+      }
 
-      ::-webkit-scrollbar { width: 6px; }
-      ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+      /* Ocean */
+      .ocean {
+        background-color: #f0f9ff !important;
+        color: #0c4a6e !important;
+      }
+
+      /* Forest */
+      .forest {
+        background-color: #f0fdf4 !important;
+        color: #14532d !important;
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
     </style>
 
+    <!-- Importmap (somente se você REALMENTE usa @google/genai via CDN) -->
     <script type="importmap">
-      { "imports": { "@google/genai": "https://esm.sh/@google/genai@^1.39.0" } }
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@^1.39.0"
+        }
+      }
     </script>
   </head>
 
   <body class="bg-slate-50 text-slate-900 transition-colors duration-200">
+    <!-- React monta aqui -->
     <div id="root"></div>
+
+    <!-- 🚨 ENTRADA DO VITE (APENAS NO CÓDIGO FONTE)
+         ❗ NO BUILD, O VITE SUBSTITUI ISSO POR /Dabar_Ai/assets/*.js -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
