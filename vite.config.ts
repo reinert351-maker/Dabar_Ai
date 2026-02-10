@@ -5,9 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, ".", "");
 
-  // ✅ GitHub Pages precisa do base com o nome do repositório
-  // Ex: https://reinert351-maker.github.io/Dabar_Ai/  -> base = "/Dabar_Ai/"
-  const repoName = "Dabar_Ai";
+  const repoName = "Dabar_Ai"; // <-- troque se o nome for diferente
 
   return {
     base: `/${repoName}/`,
