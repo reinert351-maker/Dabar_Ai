@@ -3,13 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Dabar AI | Estudo Bíblico Profundo</title>
 
-    <!-- Tailwind via CDN (OK para agora, depois pode migrar para PostCSS) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,20 +14,15 @@
       rel="stylesheet"
     />
 
-    <!-- Styles & Themes -->
     <style>
       body {
         font-family: "Inter", sans-serif;
         -webkit-font-smoothing: antialiased;
       }
-
       .bible-text {
         font-family: "Merriweather", serif;
       }
 
-      /* ===== Themes ===== */
-
-      /* Sepia */
       .sepia {
         background-color: #f4ecd8 !important;
         color: #5b4636 !important;
@@ -45,7 +37,6 @@
         color: #5b4636 !important;
       }
 
-      /* Midnight (OLED) */
       .midnight {
         background-color: #000 !important;
         color: #fff !important;
@@ -58,19 +49,16 @@
         border-color: #1a1a1a !important;
       }
 
-      /* Ocean */
       .ocean {
         background-color: #f0f9ff !important;
         color: #0c4a6e !important;
       }
 
-      /* Forest */
       .forest {
         background-color: #f0fdf4 !important;
         color: #14532d !important;
       }
 
-      /* Scrollbar */
       ::-webkit-scrollbar {
         width: 6px;
       }
@@ -80,23 +68,20 @@
       }
     </style>
 
-    <!-- Import map (Gemini / Google GenAI) -->
     <script type="importmap">
       {
         "imports": {
-          "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
-          "react": "https://esm.sh/react@^19.2.4",
-          "react-dom": "https://esm.sh/react-dom@^19.2.4"
+          "@google/genai": "https://esm.sh/@google/genai@^1.39.0"
         }
       }
     </script>
   </head>
 
   <body class="bg-slate-50 text-slate-900 transition-colors duration-200">
-    <!-- React root -->
     <div id="root"></div>
 
-    <!-- 🚀 ENTRY POINT DO VITE (OBRIGATÓRIO) -->
-    <div id="root"></div>
+    <!-- ✅ ESTE SCRIPT É PARA O VITE (NO BUILD ELE VIRA /assets/...js) -->
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
+
